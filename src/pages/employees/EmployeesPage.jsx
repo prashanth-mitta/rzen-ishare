@@ -43,7 +43,8 @@ async function fetchAll() {
     .from('departments')
     .select('id,name')
     .order('name')
-
+console.log('DEPTS:', depts)
+console.log('FIRST EMP DEPT ID:', emps?.[0]?.department_id)
   const { data: locs } = await supabase
     .from('work_locations')
     .select('id,name')
