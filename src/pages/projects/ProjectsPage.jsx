@@ -97,7 +97,7 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <PageHeader title="Projects" description="Manage client projects and team assignments"
         action={<Button onClick={openAdd}><Plus size={16}/>Add project</Button>}/>
 
@@ -134,11 +134,11 @@ export default function ProjectsPage() {
       <Modal open={modal} onClose={()=>setModal(false)} title={editing?'Edit project':'Add project'} size="lg">
         {error && <Alert type="error" className="mb-4">{error}</Alert>}
         <form onSubmit={handleSave} className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Project name" value={form.name} onChange={set('name')} required/>
             <Input label="Project code" value={form.code} onChange={set('code')} required placeholder="e.g. PROJ-001"/>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Select label="Client" value={form.client_id} onChange={set('client_id')} required>
               <option value="">Select client</option>
               {clients.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
@@ -152,7 +152,7 @@ export default function ProjectsPage() {
             <option value="">Select manager</option>
             {employees.map(e => <option key={e.id} value={e.id}>{e.first_name} {e.last_name}</option>)}
           </Select>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">Start date <span className="text-red-500">*</span></label>
               <input type="date" value={form.start_date} onChange={set('start_date')} required className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"/>
@@ -195,7 +195,7 @@ export default function ProjectsPage() {
               {employees.map(e => <option key={e.id} value={e.id}>{e.first_name} {e.last_name} ({e.emp_id})</option>)}
             </Select>
             <Input label="Role on project" value={memberForm.role_on_project} onChange={setM('role_on_project')} required placeholder="e.g. Team lead, Developer"/>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex flex-col gap-1">
                 <label className="text-sm font-medium text-gray-700">Start date <span className="text-red-500">*</span></label>
                 <input type="date" value={memberForm.start_date} onChange={setM('start_date')} required className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"/>

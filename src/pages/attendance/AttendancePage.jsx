@@ -86,7 +86,7 @@ export default function AttendancePage() {
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <PageHeader title="Attendance" description="Mark and track employee attendance"
         action={<Button onClick={openAdd}><Plus size={16}/>Mark attendance</Button>}/>
 
@@ -141,7 +141,7 @@ export default function AttendancePage() {
             <option value="">Select employee</option>
             {employees.map(e => <option key={e.id} value={e.id}>{e.first_name} {e.last_name} ({e.emp_id})</option>)}
           </Select>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">Date <span className="text-red-500">*</span></label>
               <input type="date" value={form.date} onChange={set('date')} required
@@ -151,7 +151,7 @@ export default function AttendancePage() {
               {STATUSES.map(s => <option key={s} value={s}>{STATUS_LABELS[s]}</option>)}
             </Select>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">Check-in time</label>
               <input type="time" value={form.check_in_time} onChange={set('check_in_time')}

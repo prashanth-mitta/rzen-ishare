@@ -68,7 +68,7 @@ export default function ContractsPage() {
   const statusColor = { draft:'bg-gray-100 text-gray-700', active:'bg-green-100 text-green-800', expired:'bg-red-100 text-red-800', terminated:'bg-orange-100 text-orange-800' }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <PageHeader title="Contracts" description="Manage client contracts"
         action={<Button onClick={openAdd}><Plus size={16}/>Add contract</Button>}/>
 
@@ -103,11 +103,11 @@ export default function ContractsPage() {
       <Modal open={modal} onClose={()=>setModal(false)} title={editing?'Edit contract':'Add contract'} size="lg">
         {error && <Alert type="error" className="mb-4">{error}</Alert>}
         <form onSubmit={handleSave} className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Contract title" value={form.title} onChange={set('title')} required/>
             <Input label="Contract number" value={form.contract_number} onChange={set('contract_number')} required placeholder="e.g. CNT-2024-001"/>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Select label="Client" value={form.client_id} onChange={set('client_id')} required>
               <option value="">Select client</option>
               {clients.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
@@ -117,7 +117,7 @@ export default function ContractsPage() {
               {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
             </Select>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">Start date <span className="text-red-500">*</span></label>
               <input type="date" value={form.start_date} onChange={set('start_date')} required className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"/>
@@ -131,7 +131,7 @@ export default function ContractsPage() {
               <input type="date" value={form.renewal_date} onChange={set('renewal_date')} className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"/>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">Contract value (INR) <span className="text-red-500">*</span></label>
               <div className="relative">

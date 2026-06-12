@@ -58,7 +58,7 @@ export default function ClientsPage() {
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <PageHeader title="Clients" description="Manage client organisations"
         action={<Button onClick={openAdd}><Plus size={16}/>Add client</Button>}/>
 
@@ -97,14 +97,14 @@ export default function ClientsPage() {
       <Modal open={modal} onClose={()=>setModal(false)} title={editing?'Edit client':'Add client'} size="lg">
         {error && <Alert type="error" className="mb-4">{error}</Alert>}
         <form onSubmit={handleSave} className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Client name" value={form.name} onChange={set('name')} required placeholder="Acme Corp"/>
             <Input label="Client code" value={form.code} onChange={set('code')} required placeholder="ACME" hint="Unique short code"/>
           </div>
           <Input label="Industry" value={form.industry} onChange={set('industry')} placeholder="e.g. Manufacturing, IT, Healthcare"/>
           <div className="border-t border-gray-100 pt-4">
             <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-3">Primary contact</p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Name" value={form.primary_contact_name} onChange={set('primary_contact_name')} required/>
               <Input label="Email" type="email" value={form.primary_contact_email} onChange={set('primary_contact_email')} required/>
             </div>
@@ -112,13 +112,13 @@ export default function ClientsPage() {
           </div>
           <div className="border-t border-gray-100 pt-4">
             <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-3">Secondary contact (optional)</p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Name" value={form.secondary_contact_name} onChange={set('secondary_contact_name')}/>
               <Input label="Email" type="email" value={form.secondary_contact_email} onChange={set('secondary_contact_email')}/>
             </div>
           </div>
           <Textarea label="Billing address" value={form.billing_address} onChange={set('billing_address')} rows={2}/>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Website" type="url" value={form.website} onChange={set('website')} placeholder="https://"/>
             <div/>
           </div>

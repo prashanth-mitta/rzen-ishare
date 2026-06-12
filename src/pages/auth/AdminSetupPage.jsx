@@ -84,7 +84,7 @@ export default function AdminSetupPage() {
                 <User size={18} className="text-brand-600"/>
                 <h2 className="text-base font-semibold text-gray-900">Create admin account</h2>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input label="First name" placeholder="Rajan" value={acc.firstName} onChange={setA('firstName')} required/>
                 <Input label="Last name" placeholder="Sharma" value={acc.lastName} onChange={setA('lastName')} required/>
               </div>

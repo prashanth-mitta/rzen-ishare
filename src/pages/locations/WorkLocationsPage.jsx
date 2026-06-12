@@ -74,7 +74,7 @@ export default function WorkLocationsPage() {
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <PageHeader title="Work locations" description="Manage offices, client sites and remote hubs"
         action={<Button onClick={openAdd}><Plus size={16}/>Add location</Button>}/>
 
@@ -110,7 +110,7 @@ export default function WorkLocationsPage() {
       <Modal open={modal} onClose={()=>setModal(false)} title={editing?'Edit work location':'Add work location'} size="lg">
         {error && <Alert type="error" className="mb-4">{error}</Alert>}
         <form onSubmit={handleSave} className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Location name" value={form.name} onChange={set('name')} required placeholder="e.g. Hyderabad Office"/>
             <Select label="Client" value={form.client_id} onChange={set('client_id')} required>
               <option value="">Select a client</option>
@@ -122,12 +122,12 @@ export default function WorkLocationsPage() {
           </Select>
           <Input label="Address line 1" value={form.address_line1} onChange={set('address_line1')} required/>
           <Input label="Address line 2" value={form.address_line2} onChange={set('address_line2')} placeholder="Optional"/>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <Input label="City" value={form.city} onChange={set('city')} required/>
             <Input label="State" value={form.state} onChange={set('state')} required/>
             <Input label="Pincode" value={form.pincode} onChange={set('pincode')} required/>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Contact person" value={form.contact_person} onChange={set('contact_person')}/>
             <Input label="Contact phone" type="tel" value={form.contact_phone} onChange={set('contact_phone')}/>
           </div>

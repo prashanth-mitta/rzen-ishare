@@ -61,7 +61,7 @@ export default function DepartmentsPage() {
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <PageHeader title="Departments" description="Manage your organisation's departments"
         action={<Button onClick={openAdd}><Plus size={16}/>Add department</Button>}/>
 
@@ -96,7 +96,7 @@ export default function DepartmentsPage() {
       <Modal open={modal} onClose={()=>setModal(false)} title={editing?'Edit department':'Add department'}>
         {error && <Alert type="error" className="mb-4">{error}</Alert>}
         <form onSubmit={handleSave} className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Department name" value={form.name} onChange={set('name')} required placeholder="e.g. Engineering"/>
             <Input label="Department code" value={form.code} onChange={set('code')} required placeholder="e.g. ENG"/>
           </div>
